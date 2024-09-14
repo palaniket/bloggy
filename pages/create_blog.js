@@ -26,7 +26,7 @@ const CreateBlog = () => {
     const data = { title, content };
 
     try {
-      const result = await fetch(`http://localhost:3000/api/posts`, {
+      const result = await fetch(`${process.env.NEXT_PUBLIC_URI}/api/posts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

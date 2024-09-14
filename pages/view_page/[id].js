@@ -21,7 +21,7 @@ export async function getServerSideProps(context) {
   // console.log(`Fetching post with id: ${id}`);
 
   try {
-    const response = await fetch(`http://localhost:3000/api/posts/${id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URI}/api/posts/${id}`, {
       method: 'GET', // GET request to fetch data
       headers: {
         'Content-Type': 'application/json',

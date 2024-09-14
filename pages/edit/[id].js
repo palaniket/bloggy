@@ -15,7 +15,7 @@ const POST = ({ post, id }) => {
       setContent(e.target.value);
     }
   };
-
+  console.log(process.env.NEXT_PUBLIC_URI)
   const handleClick = async (e) => {
     e.preventDefault();
 
@@ -27,7 +27,7 @@ const POST = ({ post, id }) => {
     
     else{
       const data = { title, content };
-      const result = await fetch(`http://localhost:3000/api/posts/${id}`, {
+      const result = await fetch(`${process.env.NEXT_PUBLIC_URI}/api/posts/${id}`, {
         method: 'PUT', // PUT request to update the post
         headers: {
           'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ export async function getServerSideProps(context) {
   const { id } = context.query;
 
   try {
-    const response = await fetch(`http://localhost:3000/api/posts/${id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URI}/api/posts/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

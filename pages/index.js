@@ -32,9 +32,9 @@ export default function Home({post}) {
           {post.map((item) => (
             <div className="p-4 lg:w-1/3 w-full" key={item.id}>
               {/* <Link href={`/view_page/${item.id}`} passHref legacyBehavior> */}
-                <a className=" w-full h-full">
+                <div className=" w-full h-full">
                   <Card id={item.id} title={item.title} content={item.content} />
-                </a>
+                </div>
               {/* </Link> */}
             </div>
           ))}
@@ -55,7 +55,7 @@ export default function Home({post}) {
 
 
 export async function getServerSideProps() {
-  let res = await fetch("http://localhost:3000/api/posts", {
+  let res = await fetch(`${process.env.NEXT_PUBLIC_URI}/api/posts`, {
     method: 'GET',  
     headers: {
       'Content-Type': 'application/json',
